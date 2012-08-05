@@ -16,6 +16,7 @@
 (add-to-list 'load-path "~/.emacs.d/lib/logito")
 (add-to-list 'load-path "~/.emacs.d/lib/gist")
 (add-to-list 'load-path "~/.emacs.d/lib/color-theme")
+(add-to-list 'load-path "~/.emacs.d/lib/color-theme-solarized")
 (add-to-list 'exec-path "/usr/local/bin")
 
 (defvar have-scala (file-exists-p (expand-file-name "~/scala")))
@@ -391,6 +392,9 @@
 ;;; color-theme
 
 (require 'color-theme)
+
+(add-to-list 'custom-theme-load-path "~/.emacs.d/lib/color-theme-solarized")
+
 (defun color-theme-djcb-dark ()
   "dark color theme created by djcb, Jan. 2009."
   (interactive)

@@ -34,3 +34,6 @@
 [submodule "/Users/dmckinley/.emacs.d/lib/color-theme"]
 	path = /Users/dmckinley/.emacs.d/lib/color-theme
 	url = https://github.com/jwiegley/color-theme
+[submodule "/Users/dmckinley/.emacs.d/lib/color-theme-solarized"]
+	path = /Users/dmckinley/.emacs.d/lib/color-theme-solarized
+	url = https://github.com/sellout/emacs-color-theme-solarized/

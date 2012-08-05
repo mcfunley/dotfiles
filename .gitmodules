@@ -1,0 +1,36 @@
+[submodule "/Users/dmckinley/.emacs.d/lib/php-mode"]
+	path = /Users/dmckinley/.emacs.d/lib/php-mode
+	url = https://github.com/ejmr/php-mode.git
+[submodule "/Users/dmckinley/.emacs.d/lib/erc-highlight-nicknames"]
+	path = /Users/dmckinley/.emacs.d/lib/erc-highlight-nicknames
+	url = https://github.com/emacsmirror/erc-highlight-nicknames
+[submodule "/Users/dmckinley/.emacs.d/lib/column-marker"]
+	path = /Users/dmckinley/.emacs.d/lib/column-marker
+	url = https://github.com/emacsmirror/column-marker
+[submodule "/Users/dmckinley/.emacs.d/lib/actionscript-mode"]
+	path = /Users/dmckinley/.emacs.d/lib/actionscript-mode
+	url = https://github.com/austinhaas/actionscript-mode
+[submodule "/Users/dmckinley/.emacs.d/lib/haskell-mode"]
+	path = /Users/dmckinley/.emacs.d/lib/haskell-mode
+	url = https://github.com/haskell/haskell-mode
+[submodule "/Users/dmckinley/.emacs.d/lib/bm"]
+	path = /Users/dmckinley/.emacs.d/lib/bm
+	url = https://github.com/joodland/bm
+[submodule "/Users/dmckinley/.emacs.d/lib/js2-mode"]
+	path = /Users/dmckinley/.emacs.d/lib/js2-mode
+	url = https://github.com/mooz/js2-mode
+[submodule "/Users/dmckinley/.emacs.d/lib/gist"]
+	path = /Users/dmckinley/.emacs.d/lib/gist
+	url = https://github.com/defunkt/gist.el
+[submodule "/Users/dmckinley/.emacs.d/lib/gh"]
+	path = /Users/dmckinley/.emacs.d/lib/gh
+	url = https://github.com/sigma/gh.el
+[submodule "/Users/dmckinley/.emacs.d/lib/pcache"]
+	path = /Users/dmckinley/.emacs.d/lib/pcache
+	url = https://github.com/sigma/pcache
+[submodule "/Users/dmckinley/.emacs.d/lib/logito"]
+	path = /Users/dmckinley/.emacs.d/lib/logito
+	url = https://github.com/sigma/logito
+[submodule "/Users/dmckinley/.emacs.d/lib/color-theme"]
+	path = /Users/dmckinley/.emacs.d/lib/color-theme
+	url = https://github.com/jwiegley/color-theme

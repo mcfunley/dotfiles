@@ -37,3 +37,6 @@
 [submodule "/Users/dmckinley/.emacs.d/lib/color-theme-solarized"]
 	path = /Users/dmckinley/.emacs.d/lib/color-theme-solarized
 	url = https://github.com/sellout/emacs-color-theme-solarized/
+[submodule ".emacs.d/lib/markdown-mode"]
+	path = .emacs.d/lib/markdown-mode
+	url = git://jblevins.org/git/markdown-mode.git

@@ -17,6 +17,7 @@
 (add-to-list 'load-path "~/.emacs.d/lib/gist")
 (add-to-list 'load-path "~/.emacs.d/lib/color-theme")
 (add-to-list 'load-path "~/.emacs.d/lib/color-theme-solarized")
+(add-to-list 'load-path "~/.emacs.d/lib/markdown-mode")
 (add-to-list 'exec-path "/usr/local/bin")
 
 (defvar have-scala (file-exists-p (expand-file-name "~/scala")))
@@ -175,6 +176,8 @@
 (require 'haskell-mode)
 (when have-scala (require 'scala-mode-auto))
 
+(autoload 'markdown-mode "markdown-mode.el" "Major mode for editing Markdown files" t)
+(setq auto-mode-alist (cons '("\\.md" . markdown-mode) auto-mode-alist))
 
 (setq indent-tabs-mode nil)
 

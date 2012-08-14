@@ -1,42 +1,42 @@
-[submodule "/Users/dmckinley/.emacs.d/lib/php-mode"]
-	path = /Users/dmckinley/.emacs.d/lib/php-mode
-	url = https://github.com/ejmr/php-mode.git
-[submodule "/Users/dmckinley/.emacs.d/lib/erc-highlight-nicknames"]
-	path = /Users/dmckinley/.emacs.d/lib/erc-highlight-nicknames
+[submodule ".emacs.d/lib/erc-highlight-nicknames"]
+	path = .emacs.d/lib/erc-highlight-nicknames
 	url = https://github.com/emacsmirror/erc-highlight-nicknames
-[submodule "/Users/dmckinley/.emacs.d/lib/column-marker"]
-	path = /Users/dmckinley/.emacs.d/lib/column-marker
+[submodule ".emacs.d/lib/column-marker"]
+	path = .emacs.d/lib/column-marker
 	url = https://github.com/emacsmirror/column-marker
-[submodule "/Users/dmckinley/.emacs.d/lib/actionscript-mode"]
-	path = /Users/dmckinley/.emacs.d/lib/actionscript-mode
-	url = https://github.com/austinhaas/actionscript-mode
-[submodule "/Users/dmckinley/.emacs.d/lib/haskell-mode"]
-	path = /Users/dmckinley/.emacs.d/lib/haskell-mode
+[submodule ".emacs.d/lib/actionscript-mode"]
+	path = .emacs.d/lib/actionscript-mode
+	url = https://github.com/austinhaas/actionscript-mode 
+[submodule ".emacs.d/lib/haskell-mode"]
+	path = .emacs.d/lib/haskell-mode
 	url = https://github.com/haskell/haskell-mode
-[submodule "/Users/dmckinley/.emacs.d/lib/bm"]
-	path = /Users/dmckinley/.emacs.d/lib/bm
+[submodule ".emacs.d/lib/bm"]
+	path = .emacs.d/lib/bm
 	url = https://github.com/joodland/bm
-[submodule "/Users/dmckinley/.emacs.d/lib/js2-mode"]
-	path = /Users/dmckinley/.emacs.d/lib/js2-mode
+[submodule ".emacs.d/lib/js2-mode"]
+	path = .emacs.d/lib/js2-mode
 	url = https://github.com/mooz/js2-mode
-[submodule "/Users/dmckinley/.emacs.d/lib/gist"]
-	path = /Users/dmckinley/.emacs.d/lib/gist
+[submodule ".emacs.d/lib/gist"]
+	path = .emacs.d/lib/gist
 	url = https://github.com/defunkt/gist.el
-[submodule "/Users/dmckinley/.emacs.d/lib/gh"]
-	path = /Users/dmckinley/.emacs.d/lib/gh
+[submodule ".emacs.d/lib/gh"]
+	path = .emacs.d/lib/gh
 	url = https://github.com/sigma/gh.el
-[submodule "/Users/dmckinley/.emacs.d/lib/pcache"]
-	path = /Users/dmckinley/.emacs.d/lib/pcache
+[submodule ".emacs.d/lib/pcache"]
+	path = .emacs.d/lib/pcache
 	url = https://github.com/sigma/pcache
-[submodule "/Users/dmckinley/.emacs.d/lib/logito"]
-	path = /Users/dmckinley/.emacs.d/lib/logito
+[submodule ".emacs.d/lib/logito"]
+	path = .emacs.d/lib/logito
 	url = https://github.com/sigma/logito
-[submodule "/Users/dmckinley/.emacs.d/lib/color-theme"]
-	path = /Users/dmckinley/.emacs.d/lib/color-theme
+[submodule ".emacs.d/lib/color-theme"]
+	path = .emacs.d/lib/color-theme
 	url = https://github.com/jwiegley/color-theme
-[submodule "/Users/dmckinley/.emacs.d/lib/color-theme-solarized"]
-	path = /Users/dmckinley/.emacs.d/lib/color-theme-solarized
+[submodule ".emacs.d/lib/color-theme-solarized"]
+	path = .emacs.d/lib/color-theme-solarized
 	url = https://github.com/sellout/emacs-color-theme-solarized/
 [submodule ".emacs.d/lib/markdown-mode"]
 	path = .emacs.d/lib/markdown-mode
 	url = git://jblevins.org/git/markdown-mode.git
+[submodule ".emacs.d/lib/php-mode"]
+	path = .emacs.d/lib/php-mode
+	url = git://github.com/ejmr/php-mode.git

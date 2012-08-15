@@ -40,3 +40,6 @@
 [submodule ".emacs.d/lib/php-mode"]
 	path = .emacs.d/lib/php-mode
 	url = git://github.com/ejmr/php-mode.git
+[submodule ".emacs.d/lib/twilight-emacs"]
+	path = .emacs.d/lib/twilight-emacs
+	url = git://github.com/crafterm/twilight-emacs.git

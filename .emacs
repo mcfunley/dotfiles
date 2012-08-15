@@ -18,6 +18,7 @@
 (add-to-list 'load-path "~/.emacs.d/lib/color-theme")
 (add-to-list 'load-path "~/.emacs.d/lib/color-theme-solarized")
 (add-to-list 'load-path "~/.emacs.d/lib/markdown-mode")
+(add-to-list 'load-path "~/.emacs.d/lib/twilight-emacs")
 (add-to-list 'exec-path "/usr/local/bin")
 
 (defvar have-scala (file-exists-p (expand-file-name "~/scala")))
@@ -395,89 +396,11 @@
 ;;; color-theme
 
 (require 'color-theme)
-
+(require 'color-theme-twilight)
 (add-to-list 'custom-theme-load-path "~/.emacs.d/lib/color-theme-solarized")
 
-(defun color-theme-djcb-dark ()
-  "dark color theme created by djcb, Jan. 2009."
-  (interactive)
-  (color-theme-install
-    '(color-theme-djcb-dark
-       ((foreground-color . "#a9eadf")
-         (background-color . "black") 
-         (background-mode . dark))
-       (bold ((t (:bold t))))
-       (bold-italic ((t (:italic t :bold t))))
-       (default ((t (nil))))
-       
-       (font-lock-builtin-face ((t (:italic t :foreground "#a96da0"))))
-       (font-lock-comment-face ((t (:italic t :foreground "#bbbbbb"))))
-       (font-lock-comment-delimiter-face ((t (:foreground "#666666"))))
-       (font-lock-constant-face ((t (:bold t :foreground "#197b6e"))))
-       (font-lock-doc-string-face ((t (:foreground "#3041c4"))))
-       (font-lock-doc-face ((t (:foreground "gray"))))
-       (font-lock-reference-face ((t (:foreground "white"))))
-       (font-lock-function-name-face ((t (:foreground "#356da0"))))
-       (font-lock-keyword-face ((t (:bold t :foreground "#bcf0f1"))))
-       (font-lock-preprocessor-face ((t (:foreground "#e3ea94"))))
-       (font-lock-string-face ((t (:foreground "#ffffff"))))
-       (font-lock-type-face ((t (:bold t :foreground "#364498"))))
-       (font-lock-variable-name-face ((t (:foreground "#7685de"))))
-       (font-lock-warning-face ((t (:bold t :italic nil :underline nil 
-                                     :foreground "yellow"))))
-       (hl-line ((t (:background "#112233"))))
-       (mode-line ((t (:foreground "#ffffff" :background "#333333"))))
-       (region ((t (:foreground nil :background "#555555"))))
-       (show-paren-match-face ((t (:bold t :foreground "#ffffff" 
-                                    :background "#050505")))))))
-
-(defun color-theme-twilight ()
-  "Color theme by Marcus Crafter, based off the TextMate Twilight theme, created 2008-04-18"
-  (interactive)
-  (setq term-default-fg-color "white")
-  (setq term-default-bg-color "#242424")
-  (color-theme-install
-	'(color-theme-twilight
-	  ((background-color . "#242424")
-		(background-mode . dark)
-		(border-color . "black")
-		(cursor-color . "#A7A7A7")
-		(foreground-color . "#F8F8F8")
-		(mouse-color . "sienna1"))
-	  (default ((t (:background "black" :foreground "white"))))
-	  (blue ((t (:foreground "blue"))))
-	  (bold ((t (:bold t))))
-	  (bold-italic ((t (:bold t))))
-	  (border-glyph ((t (nil))))
-	  (buffers-tab ((t (:background "black" :foreground "white"))))
-	  (font-lock-builtin-face ((t (:foreground "#CF6A4C"))))
-	  (font-lock-comment-face ((t (:italic t :foreground "#5F5A60"))))
-	  (font-lock-constant-face ((t (:foreground "#CF6A4C"))))
-	  (font-lock-doc-string-face ((t (:foreground "DarkOrange"))))
-	  (font-lock-function-name-face ((t (:foreground "#9B703F"))))
-	  (font-lock-keyword-face ((t (:foreground "#CDA869"))))
-	  (font-lock-preprocessor-face ((t (:foreground "Aquamarine"))))
-	  (font-lock-reference-face ((t (:foreground "SlateBlue"))))
-
-	  (font-lock-regexp-grouping-backslash ((t (:foreground "#E9C062"))))
-	  (font-lock-regexp-grouping-construct ((t (:foreground "red"))))
-
-	  (font-lock-string-face ((t (:foreground "#8F9D6A"))))
-	  (font-lock-type-face ((t (:foreground "#9B703F"))))
-	  (font-lock-variable-name-face ((t (:foreground "#7587A6"))))
-	  (font-lock-warning-face ((t (:bold t :background "#EE799F" :foreground "red"))))
-	  (gui-element ((t (:background "#D4D0C8" :foreground "black"))))
-	  (region ((t (:background "#27292A"))))
-	  (mode-line ((t (:background "grey75" :foreground "black"))))
-	  (highlight ((t (:background "#7587a5"))))
-	  (highline-face ((t (:background "SeaGreen"))))
-	  (italic ((t (nil))))
-	  (left-margin ((t (nil))))
-	  (text-cursor ((t (:background "yellow" :foreground "black"))))
-	  (toolbar ((t (nil))))
-	  (underline ((nil (:underline nil))))
-      (show-paren-match-face ((t (:background "#7587a5"))))
-	  (zmacs-region ((t (:background "snow" :foreground "blue")))))))
+;;; -----------------------------------------------------------------------------
+;;; post init hook
 
 (when (fboundp 'mck-post-init)
   (mck-post-init))

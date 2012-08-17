@@ -1,0 +1,6 @@
+[user]
+	name = Dan McKinley
+	email = mcfunley@gmail.com
+[alias]
+	lg = log --decorate -p
+	rpull = pull --rebase --stat

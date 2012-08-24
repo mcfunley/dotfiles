@@ -2,29 +2,17 @@
 
 ;;; -----------------------------------------------------------------------------
 ;;; paths
-(add-to-list 'load-path "~/.emacs.d/lib")
+
 (add-to-list 'load-path "~/.emacs.d/elisp")
-(add-to-list 'load-path "~/.emacs.d/lib/php-mode")
-(add-to-list 'load-path "~/.emacs.d/lib/erc-highlight-nicknames")
-(add-to-list 'load-path "~/.emacs.d/lib/column-marker")
-(add-to-list 'load-path "~/.emacs.d/lib/actionscript-mode")
-(add-to-list 'load-path "~/.emacs.d/lib/haskell-mode")
-(add-to-list 'load-path "~/.emacs.d/lib/bm")
-(add-to-list 'load-path "~/.emacs.d/lib/js2-mode")
-(add-to-list 'load-path "~/.emacs.d/lib/gh")
-(add-to-list 'load-path "~/.emacs.d/lib/pcache")
-(add-to-list 'load-path "~/.emacs.d/lib/logito")
-(add-to-list 'load-path "~/.emacs.d/lib/gist")
-(add-to-list 'load-path "~/.emacs.d/lib/color-theme")
-(add-to-list 'load-path "~/.emacs.d/lib/color-theme-solarized")
-(add-to-list 'load-path "~/.emacs.d/lib/markdown-mode")
-(add-to-list 'load-path "~/.emacs.d/lib/twilight-emacs")
+(add-to-list 'load-path "~/.emacs.d/lib")
+
+(let ((libs (directory-files "~/.emacs.d/lib" nil "^[^.]+$")))
+  (dolist (d libs)
+    (let ((path (concat "~/.emacs.d/lib/" d)))
+      (message path)
+      (add-to-list 'load-path path))))
+
 (add-to-list 'exec-path "/usr/local/bin")
-
-(defvar have-scala (file-exists-p (expand-file-name "~/scala")))
-
-(when have-scala
-  (add-to-list 'load-path "~/scala/misc/scala-tool-support/emacs"))
 
 (defvar have-evernote 
   (file-exists-p (expand-file-name "~/lib/site-lisp/evernote")))
@@ -175,7 +163,7 @@
 (require 'php-mode)
 (require 'actionscript-mode)
 (require 'haskell-mode)
-(when have-scala (require 'scala-mode-auto))
+(require 'scala-mode)
 
 (autoload 'markdown-mode "markdown-mode.el" "Major mode for editing Markdown files" t)
 (setq auto-mode-alist (cons '("\\.md" . markdown-mode) auto-mode-alist))

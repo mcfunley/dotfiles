@@ -43,3 +43,6 @@
 [submodule ".emacs.d/lib/twilight-emacs"]
 	path = .emacs.d/lib/twilight-emacs
 	url = git://github.com/crafterm/twilight-emacs.git
+[submodule ".emacs.d/lib/scala-mode"]
+	path = .emacs.d/lib/scala-mode
+	url = git://github.com/haxney/scala-mode.git

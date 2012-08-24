@@ -10,4 +10,4 @@ if [ -a ~/.bash_search ]; then
     source ~/.bash_search
 fi
 
-
+export ANT_OPTS="-Xms2048m -Xmx4096m"

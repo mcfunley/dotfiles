@@ -1,0 +1,20 @@
+#!/usr/bin/python
+# calculates probability density from stdin
+# default params are compatible with the output of "uniq -c"
+import sys
+import re
+
+delim = '\s+'
+
+n = 0.
+cs = []
+ls = []
+for l in sys.stdin.xreadlines():
+    parts = re.split(delim, l)
+    c = float(parts[0])
+    cs.append(c)
+    n += c
+    ls.append(parts)
+
+for parts, c in zip(ls, cs):
+    print '\t'.join(['%.2f%%' % (c / n * 100)] + parts)

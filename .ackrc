@@ -1,0 +1,6 @@
+--type-set=smarty=.tpl
+--type-set=patch=.patch
+--type-set=txt=.txt
+--smart-case
+--ignore-dir=tmp
+--ignore-dir=ace

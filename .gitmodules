@@ -46,3 +46,6 @@
 [submodule ".emacs.d/lib/scala-mode"]
 	path = .emacs.d/lib/scala-mode
 	url = git://github.com/haxney/scala-mode.git
+[submodule ".emacs.d/lib/color-theme-molokai"]
+	path = .emacs.d/lib/color-theme-molokai
+	url = git://github.com/alloy-d/color-theme-molokai.git

@@ -384,8 +384,11 @@
 ;;; color-theme
 
 (require 'color-theme)
-(require 'color-theme-twilight)
+; (require 'color-theme-twilight)
+(require 'color-theme-molokai)
 (add-to-list 'custom-theme-load-path "~/.emacs.d/lib/color-theme-solarized")
+
+(color-theme-molokai)
 
 ;;; -----------------------------------------------------------------------------
 ;;; post init hook

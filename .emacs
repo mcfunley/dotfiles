@@ -21,6 +21,10 @@
   (add-to-list 'load-path "~/lib/site-lisp/evernote")
   (require 'evernote-mode))
 
+;;; -----------------------------------------------------------------------------
+;;; windows, etc
+
+(setq split-width-threshold nil)
 
 ;;; -----------------------------------------------------------------------------
 ;;; my elisp
@@ -52,28 +56,15 @@
 ;;; ERC
 (require 'erc)
 (setq erc-autojoin-channels-alist
-      `((,etsy-irc-server "#nagios" "#sysops" "#push" "#USA" 
-         "#hardware" "#etsy" "#warroom" "#coreplatform" "#wranglers"
-         "#forums" "#explorers" "#stranglers" "#ptsd" "#searchads"
-         "#hadoop")
+      `((,etsy-irc-server "#sysops" "#push" "search_and_destroy"
+                          "#hardware" "#warroom" "#coreplatform"
+                          "#hadoop" "#data")
         ("irc.freenode.net" "#mongodb" "#scala")))
 
 (setq erc-join-buffer 'bury)
 (setq erc-fill-column 120)
 
 (defcustom etsy-erc-nickname "dan" "")
-
-(setq erc-log-channels-directory "~/.erc/logs")
-(setq erc-save-buffer-on-part nil
-      erc-save-queries-on-quit nil
-      erc-log-write-after-send t
-      erc-log-write-after-insert t)
-(require 'erc-log)
-
-(and
- (require 'erc-highlight-nicknames)
- (add-to-list 'erc-modules 'highlight-nicknames)
- (erc-update-modules))
 
 (setq erc-keywords '("\\bdmckinley\\b"))
 
@@ -94,10 +85,6 @@
         (kill-buffer b))))
   (etsy-erc))
 
-
-;;; -----------------------------------------------------------------------------
-;;; (a|i)spell
-(setq ispell-program-name "/opt/local/bin/aspell")
 
 ;;; -----------------------------------------------------------------------------
 ;;; iswitchb

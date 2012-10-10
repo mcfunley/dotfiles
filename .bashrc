@@ -10,4 +10,8 @@ if [ -a ~/.bash_search ]; then
     source ~/.bash_search
 fi
 
+if [ -a ~/.bash_hadoop ]; then
+    source ~/.bash_hadoop
+fi
+
 export ANT_OPTS="-Xms2048m -Xmx4096m"

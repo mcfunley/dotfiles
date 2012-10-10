@@ -4,3 +4,5 @@
 [alias]
 	lg = log --decorate -p
 	rpull = pull --rebase --stat
+[core]
+	excludesfile =

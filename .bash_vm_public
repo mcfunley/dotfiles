@@ -1,0 +1,1 @@
+alias gearman-reset='sudo /etc/init.d/memcached restart && sudo /etc/init.d/gearmand restart && sudo /etc/init.d/gearman_manager restart'

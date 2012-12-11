@@ -1,0 +1,17 @@
+#!/usr/bin/python
+from math import sqrt, pi, e, exp
+import sys
+
+def wilson_interval(m, n):
+    p = float(m) / n
+    z = 1.96
+    zsq = z ** 2
+    a = 1 + zsq / n
+    center = (p + zsq / (2.0 * n)) / a
+    d = z * sqrt((p * (1 - p) + zsq / (4.0 * n)) / n) / a
+    return center - d, center + d, center
+
+m, n = map(int, sys.argv[1:])
+l, h, c = wilson_interval(m, n)
+print '%.2f (+/- %.2f)' % (c, h - c)
+

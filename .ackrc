@@ -1,6 +1,7 @@
 --type-set=smarty=.tpl
 --type-set=patch=.patch
 --type-set=txt=.txt
+--type-set=cfg=.cfg
 --smart-case
 --ignore-dir=tmp
 --ignore-dir=ace

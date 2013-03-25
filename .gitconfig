@@ -3,3 +3,4 @@
 	rpull = pull --rebase --stat
 [core]
 	excludesfile =
+	editor = emacsclient

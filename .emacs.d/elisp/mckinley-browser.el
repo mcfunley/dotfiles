@@ -34,17 +34,6 @@
 (setq browse-url-browser-function 'choose-browser)
 
 
-
-(defun php-web-help ()
-  (interactive)
-  (let ((url (concat "http://php.net/" 
-                     (read-from-minibuffer "Function: " (current-word)))))
-    (browse-url url)))
-
-(add-hook 'php-mode-hook 
-          '(lambda () (local-set-key "\C-c\C-h" 'php-web-help)))
-
-
 ; needs work
 ;(when have-w3m
 ;  (require 'mckinley-w3m))

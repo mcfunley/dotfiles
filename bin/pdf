@@ -4,17 +4,17 @@
 import sys
 import re
 
-delim = '\s+'
+delim = '\t'
 
 n = 0.
 cs = []
 ls = []
 for l in sys.stdin.xreadlines():
-    parts = re.split(delim, l)
-    c = float(parts[0])
+    parts = [x for x in re.split(delim, l) if x]
+    c = float(parts[1])
     cs.append(c)
     n += c
     ls.append(parts)
 
 for parts, c in zip(ls, cs):
-    print '\t'.join(['%.2f%%' % (c / n * 100)] + parts)
+    print '\t'.join(['%.2f%%' % (c / n * 100)] + parts).strip()    

@@ -284,6 +284,12 @@
   (c-set-offset 'arglist-cont-nonempty 'c-lineup-math)
   (c-set-style "my-php-style"))
 
+(defun php-pman ()
+  (interactive)
+  (let ((man-term (read-from-minibuffer "Term: " (current-word))))
+    (man (concat "-M /usr/share/pear/doc/pman " man-term))))
+(add-hook 'php-mode-hook '(lambda () (local-set-key "\C-c\C-h" 'php-pman)))
+
 (add-hook 'php-mode-hook 'php-formatting-defaults)
 (add-hook 'java-mode-hook 'php-formatting-defaults)
 

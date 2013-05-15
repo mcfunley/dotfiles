@@ -2,6 +2,9 @@
 --type-set=patch=.patch
 --type-set=txt=.txt
 --type-set=cfg=.cfg
+--type-set=md=.md
+--type-set=fortran=.f
+--type-set=r=.r
 --smart-case
 --ignore-dir=tmp
 --ignore-dir=ace

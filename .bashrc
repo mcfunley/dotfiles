@@ -19,5 +19,6 @@ if [ -a ~/.bash_vm_public ]; then
 fi
 
 export ANT_OPTS="-Xms2048m -Xmx4096m"
+export SBT_OPTS=-XX:MaxPermSize=2G
 
-
+alias simulator='open /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone\ Simulator.app'

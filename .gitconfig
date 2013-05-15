@@ -4,3 +4,6 @@
 [core]
 	excludesfile =
 	editor = emacsclient
+[user]
+	name = Dan McKinley
+	email = mcfunley@gmail.com

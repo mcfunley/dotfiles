@@ -55,10 +55,11 @@
 ;;; -----------------------------------------------------------------------------
 ;;; ERC
 (require 'erc)
+(require 'erc-highlight-nicknames)
 (setq erc-autojoin-channels-alist
-      `((,etsy-irc-server "#sysops" "#push" "search_and_destroy"
-                          "#hardware" "#warroom" "#coreplatform"
-                          "#hadoop" "#data")
+      `((,etsy-irc-server "#sysops" "#push" "#search_and_destroy"
+                          "#warroom" "#coreplatform"
+                          "#hadoop" "#data" "#q")
         ("irc.freenode.net" "#mongodb" "#scala")))
 
 (setq erc-join-buffer 'bury)
@@ -66,13 +67,14 @@
 
 (defcustom etsy-erc-nickname "dan" "")
 
-(setq erc-keywords '("\\bdmckinley\\b"))
+(setq erc-keywords '("\\bdmckinley\\b" "\\bdan\\b"))
 
 (setq erc-hide-list `("JOIN" "PART" "QUIT"))
 
 (setq erc-system-name (concat (user-login-name) "@" (system-name)))
 (defun etsy-erc () 
   (interactive)
+  (erc-highlight-nicknames-disable)
   (erc-ssl :server etsy-irc-server :nick etsy-erc-nickname
            :port etsy-irc-port
            :password etsy-irc-password))

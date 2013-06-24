@@ -48,6 +48,8 @@
 ;;; -----------------------------------------------------------------------------
 ;;; comint / shells / terminals
 
+(require 'multi-term)
+
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 (setq comint-prompt-read-only t)
 

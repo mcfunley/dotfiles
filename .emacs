@@ -155,6 +155,7 @@
 (require 'actionscript-mode)
 (require 'haskell-mode)
 (require 'scala-mode)
+(require 'go-mode-load)
 
 (autoload 'markdown-mode "markdown-mode.el" "Major mode for editing Markdown files" t)
 (setq auto-mode-alist (cons '("\\.md" . markdown-mode) auto-mode-alist))
@@ -316,6 +317,8 @@
 (add-hook 'js2-mode-hook 'progmode-defaults)
 (add-hook 'js2-mode-hook 'js-formatting-defaults)
 
+(when (load "ess-autoloads.el" t)
+  (require 'ess-site))
 
 
 ;;; -----------------------------------------------------------------------------

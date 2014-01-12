@@ -231,27 +231,6 @@
 ;;; -----------------------------------------------------------------------------
 ;;; grep mode
 
-
-;; Emacs 23 always restores the defaults in find-grep. This should work:
-;;
-;; (setq grep-find-command 
-;;   (concat "find . -type f '!' -path '*/.svn/*' -print0 |"
-;;           " xargs -0 -e grep -nH -e "))
-;;
-;; but it doesn't
-(defun set-grep-defaults () 
-  (let ((cmd (concat "find . -type f '!' -path '*/.svn/*' -print0 |"
-                     " xargs -0 grep -nH -e ")))
-    (grep-compute-defaults)
-    (if (boundp 'grep-host-defaults-alist)
-        (let ((localhost-defaults (assoc 'localhost grep-host-defaults-alist)))
-          (aput 'localhost-defaults 'grep-find-command 
-                (list cmd))
-          (adelete 'grep-host-defaults-alist 'localhost)
-          (aput 'grep-host-defaults-alist 'localhost localhost-defaults))
-      (setq grep-find-command cmd))))
-(set-grep-defaults)
-
 (add-hook 'grep-mode-hook (lambda () (toggle-truncate-lines 1)))
 
 ;;; -----------------------------------------------------------------------------

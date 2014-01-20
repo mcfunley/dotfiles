@@ -182,6 +182,7 @@
   (interactive)
   (enable-tab-completion)
   (column-number-mode t)
+  (electric-indent-mode t)
   (linum-mode t)
   (setq tab-width 4)
   (setq c-basic-offset 4)
@@ -199,6 +200,7 @@
              haskell-mode-hook
              ruby-mode-hook
              scala-mode-hook
+             go-mode-hook
              java-mode-hook))
   (add-hook h 'progmode-defaults))
 

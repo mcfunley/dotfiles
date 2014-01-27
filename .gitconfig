@@ -1,0 +1,9 @@
+[user]
+	name = Dan McKinley
+	email = mcfunley@gmail.com
+[core]
+	editor = /Applications/Emacs.app/Contents/MacOS/bin/emacsclient
+[push]
+	default = simple
+[alias]
+	rpull = pull --rebase

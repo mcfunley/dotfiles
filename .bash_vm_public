@@ -1,4 +1,0 @@
-alias gearman-reset='sudo /etc/init.d/memcached restart && sudo /etc/init.d/gearmand restart && sudo /etc/init.d/gearman_manager restart'
-export M2_HOME=$HOME/apache-maven-3.0.5
-export M2=$M2_HOME/bin 
-export PATH=$M2:$PATH 

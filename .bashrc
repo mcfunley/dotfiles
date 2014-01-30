@@ -4,19 +4,11 @@ export LSCOLORS=Exfxcxdxbxegedabagacad
 export PATH=/usr/local/bin:/usr/local/sbin:$HOME/bin:$PATH
 export PS1='\n[$PWD]\n\u@\h $ '
 
-alias emr=elastic-mapreduce
-
-if [ -a ~/.bash_search ]; then
-    source ~/.bash_search
+if [ -a ~/.bash_aws ]; then
+    source ~/.bash_aws
 fi
 
-if [ -a ~/.bash_hadoop ]; then
-    source ~/.bash_hadoop
-fi
-
-if [ -a ~/.bash_vm_public ]; then
-    source ~/.bash_vm_public
-fi
+export JAVA_HOME="$(/usr/libexec/java_home)"
 
 export ANT_OPTS="-Xms2048m -Xmx4096m"
 export SBT_OPTS=-XX:MaxPermSize=2G

@@ -7,4 +7,6 @@
 --type-set=r=.r
 --smart-case
 --ignore-dir=tmp
---ignore-dir=ace
+--ignore-dir=ve
+--type-set=mustache=.mustache
+--type-set=handlebars=.handlebars

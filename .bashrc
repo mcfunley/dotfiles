@@ -14,10 +14,15 @@ export ANT_OPTS="-Xms2048m -Xmx4096m"
 export SBT_OPTS=-XX:MaxPermSize=2G
 
 . virtualenvwrapper.sh
+export WORKSPACE=.
 export DJANGO_SETTINGS_MODULE=settings.dev
 export SECRETS=$HOME/radico/keys/secrets
 if [ -a $SECRETS ]; then
     source $SECRETS
+fi
+
+if [ -a ~/.bash_ruby ]; then
+    source ~/.bash_ruby
 fi
 
 alias simulator='open /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone\ Simulator.app'

@@ -5,6 +5,7 @@
 --type-set=md=.md
 --type-set=fortran=.f
 --type-set=r=.r
+--type-set=hql=.hql
 --smart-case
 --ignore-dir=tmp
 --ignore-dir=ve

@@ -3,7 +3,10 @@
 	email = mcfunley@gmail.com
 [core]
 	editor = /Applications/Emacs.app/Contents/MacOS/bin/emacsclient
+	excludesfile = /Users/dmckinley/.gitignore-global
 [push]
 	default = simple
 [alias]
 	rpull = pull --rebase
+[include]
+	path = /Users/dmckinley/.gitconfig-secrets

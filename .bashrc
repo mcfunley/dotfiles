@@ -25,6 +25,10 @@ if [ -a ~/.bash_ruby ]; then
     source ~/.bash_ruby
 fi
 
+if [ -a ~/.bash_radico ]; then
+    source ~/.bash_radico
+fi
+
 alias simulator='open /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone\ Simulator.app'
 
 alias gist='gist -p'

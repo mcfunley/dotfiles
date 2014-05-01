@@ -11,3 +11,4 @@
 --ignore-dir=ve
 --type-set=mustache=.mustache
 --type-set=handlebars=.handlebars
+--type-set=jinja=.jinja

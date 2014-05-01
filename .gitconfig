@@ -10,3 +10,5 @@
 	rpull = pull --rebase
 [include]
 	path = /Users/dmckinley/.gitconfig-secrets
+[github]
+	user = mcfunley

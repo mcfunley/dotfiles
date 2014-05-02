@@ -58,12 +58,6 @@
 ;;; ERC
 (require 'erc)
 (require 'erc-highlight-nicknames)
-(setq erc-autojoin-channels-alist
-      `((,etsy-irc-server "#sysops" "#push" "#search_and_destroy"
-                          "#warroom" "#coreplatform"
-                          "#hadoop" "#data" "#q")
-        ("irc.freenode.net" "#mongodb" "#scala")))
-
 (setq erc-join-buffer 'bury)
 (setq erc-fill-column 120)
 

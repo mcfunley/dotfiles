@@ -1,0 +1,4 @@
+homebrew/dupes
+homebrew/php
+homebrew/science
+homebrew/versions

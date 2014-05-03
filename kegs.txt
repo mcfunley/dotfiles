@@ -1,7 +1,4 @@
-ab
 ack
-apr
-apr-util
 autoconf
 aws-elasticbeanstalk
 aws-iam-tools

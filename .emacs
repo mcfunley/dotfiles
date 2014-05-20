@@ -89,6 +89,19 @@
 
 (icomplete-mode t)
 
+;; key bindings similar to the old iswitchb keys
+(setq icomplete-minibuffer-map
+  (let ((map (make-sparse-keymap)))
+    (define-key map [?\M-\t] 'minibuffer-force-complete)
+    (define-key map [?\C-j]  'minibuffer-force-complete-and-exit)
+    ;(define-key map [return]  'minibuffer-force-complete-and-exit)
+    (define-key map [?\C-.]  'icomplete-forward-completions)
+    (define-key map [?\C-s]  'icomplete-forward-completions)
+    (define-key map [?\C-,]  'icomplete-backward-completions)
+    (define-key map [?\C-r]  'icomplete-forward-completions)
+    map))
+
+
 ;;; -----------------------------------------------------------------------------
 ;;; ibuffer
 

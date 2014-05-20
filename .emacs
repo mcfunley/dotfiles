@@ -48,7 +48,7 @@
 ;;; -----------------------------------------------------------------------------
 ;;; comint / shells / terminals
 
-(require 'multi-term)
+; (require 'multi-term)
 
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 (setq comint-prompt-read-only t)
@@ -85,11 +85,9 @@
 
 
 ;;; -----------------------------------------------------------------------------
-;;; iswitchb
+;;; icomplete
 
-(require 'iswitchb)
-(iswitchb-mode t)
-
+(icomplete-mode t)
 
 ;;; -----------------------------------------------------------------------------
 ;;; ibuffer

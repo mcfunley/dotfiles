@@ -89,12 +89,28 @@
 
 (icomplete-mode t)
 
+;; This fixes the default completion when using icomplete. For example,
+;; if you type C-x k to kill the current buffer, type nothing, and then force 
+;; icomplete via C-j, the buffer killed will be whatever icomplete would have
+;; completed to and not the default.
+;; This seems like the kind of thing that will be fixed in future versions
+;; of icomplete.
+(defun icomplete-complete-or-default ()
+  (interactive)
+  (let* ((start (minibuffer-prompt-end))
+         (end (point-max))
+         (phrase (buffer-substring start end)))
+    (if (zerop (length phrase))
+        (minibuffer-complete-and-exit)
+      (minibuffer-force-complete-and-exit))
+  ))
+
 ;; key bindings similar to the old iswitchb keys
 (setq icomplete-minibuffer-map
   (let ((map (make-sparse-keymap)))
     (define-key map [?\M-\t] 'minibuffer-force-complete)
-    (define-key map [?\C-j]  'minibuffer-force-complete-and-exit)
-    ;(define-key map [return]  'minibuffer-force-complete-and-exit)
+    (define-key map [?\C-j]  'icomplete-complete-or-default)
+    (define-key map [return]  'icomplete-complete-or-default)
     (define-key map [?\C-.]  'icomplete-forward-completions)
     (define-key map [?\C-s]  'icomplete-forward-completions)
     (define-key map [?\C-,]  'icomplete-backward-completions)

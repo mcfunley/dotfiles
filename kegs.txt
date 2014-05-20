@@ -10,6 +10,7 @@ cloud-watch
 curl
 ec2-ami-tools
 ec2-api-tools
+emacs --HEAD --use-git-head --cocoa --with-gnutls
 faac
 ffmpeg
 flex

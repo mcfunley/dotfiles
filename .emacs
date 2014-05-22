@@ -101,7 +101,9 @@
          (end (point-max))
          (phrase (buffer-substring start end)))
     (if (zerop (length phrase))
+        ; selects the minibuffer's default
         (minibuffer-complete-and-exit)
+      ; selects icomplete's default completion
       (minibuffer-force-complete-and-exit))
   ))
 
@@ -117,6 +119,7 @@
     (define-key map [?\C-r]  'icomplete-forward-completions)
     map))
 
+(setq completion-ignore-case t)
 
 ;;; -----------------------------------------------------------------------------
 ;;; ibuffer

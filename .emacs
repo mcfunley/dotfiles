@@ -235,6 +235,7 @@
 
 (add-to-list 'auto-mode-alist (cons "\\.tpl\\'" 'html-mode))
 (add-to-list 'auto-mode-alist (cons "\\.as\\'" 'actionscript-mode))
+(add-to-list 'auto-mode-alist (cons "\\.jinja\\" 'html-mode))
 
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)

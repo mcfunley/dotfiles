@@ -182,6 +182,8 @@
 (require 'go-mode-load)
 
 (autoload 'markdown-mode "markdown-mode.el" "Major mode for editing Markdown files" t)
+(setq markdown-command (executable-find "markdown"))
+
 (setq auto-mode-alist (cons '("\\.md" . markdown-mode) auto-mode-alist))
 
 (setq indent-tabs-mode nil)

@@ -33,3 +33,4 @@ alias simulator='open /Applications/Xcode.app/Contents/Developer/Platforms/iPhon
 
 alias gist='gist -p'
 
+export ANDROID_HOME=/usr/local/opt/android-sdk

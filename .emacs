@@ -180,6 +180,7 @@
 (require 'haskell-mode)
 (require 'scala-mode)
 (require 'go-mode-load)
+(require 'clojure-mode)
 
 (autoload 'markdown-mode "markdown-mode.el" "Major mode for editing Markdown files" t)
 (setq markdown-command (executable-find "markdown"))
@@ -227,6 +228,7 @@
              ruby-mode-hook
              scala-mode-hook
              go-mode-hook
+             clojure-mode-hook
              java-mode-hook))
   (add-hook h 'progmode-defaults))
 

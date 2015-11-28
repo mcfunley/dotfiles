@@ -2,12 +2,13 @@
 	name = Dan McKinley
 	email = mcfunley@gmail.com
 [core]
-	editor = /Applications/Emacs.app/Contents/MacOS/bin/emacsclient
+	editor = /usr/local/Cellar/emacs/HEAD/bin/emacsclient
 	excludesfile = /Users/dmckinley/.gitignore-global
 [push]
 	default = simple
 [alias]
 	rpull = pull --rebase
+	lg = "!git --no-pager log --oneline origin..HEAD"
 [include]
 	path = /Users/dmckinley/.gitconfig-secrets
 [github]

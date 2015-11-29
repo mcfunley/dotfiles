@@ -45,6 +45,7 @@
  'erc-hl-nicks
  'php-mode
  'bm
+ 'go-mode
  'cider)
  
 
@@ -185,7 +186,7 @@
 (require 'actionscript-mode)
 (require 'haskell-mode)
 (require 'scala-mode)
-(require 'go-mode-load)
+(require 'go-mode)
 
 (autoload 'markdown-mode "markdown-mode.el" "Major mode for editing Markdown files" t)
 (setq markdown-command (executable-find "markdown"))

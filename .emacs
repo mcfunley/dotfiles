@@ -177,7 +177,6 @@
 ;; languages
 (require 'python)
 (require 'php-mode)
-(require 'actionscript-mode)
 (require 'haskell-mode)
 (require 'scala-mode)
 (require 'go-mode)
@@ -222,7 +221,6 @@
              php-mode-hook
              c-mode-hook
              html-mode-hook
-             actionscript-mode-hook
              haskell-mode-hook
              ruby-mode-hook
              scala-mode-hook
@@ -236,7 +234,6 @@
 (add-hook 'java-mode-hook (lambda () (setq tab-width 2)))
 
 (add-to-list 'auto-mode-alist (cons "\\.tpl\\'" 'html-mode))
-(add-to-list 'auto-mode-alist (cons "\\.as\\'" 'actionscript-mode))
 (add-to-list 'auto-mode-alist (cons "\\.jinja\\'" 'html-mode))
 
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)

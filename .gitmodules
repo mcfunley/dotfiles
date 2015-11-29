@@ -1,9 +1,6 @@
 [submodule ".emacs.d/lib/column-marker"]
 	path = .emacs.d/lib/column-marker
 	url = https://github.com/emacsmirror/column-marker
-[submodule ".emacs.d/lib/actionscript-mode"]
-	path = .emacs.d/lib/actionscript-mode
-	url = https://github.com/austinhaas/actionscript-mode 
 [submodule ".emacs.d/lib/haskell-mode"]
 	path = .emacs.d/lib/haskell-mode
 	url = https://github.com/haskell/haskell-mode

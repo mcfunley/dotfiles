@@ -1,6 +1,3 @@
-[submodule ".emacs.d/lib/erc-highlight-nicknames"]
-	path = .emacs.d/lib/erc-highlight-nicknames
-	url = https://github.com/emacsmirror/erc-highlight-nicknames
 [submodule ".emacs.d/lib/column-marker"]
 	path = .emacs.d/lib/column-marker
 	url = https://github.com/emacsmirror/column-marker

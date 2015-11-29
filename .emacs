@@ -42,6 +42,7 @@
 
 (require 'ensure-package)
 (ensure-package-installed
+ 'erc-hl-nicks
  'cider)
  
 
@@ -76,7 +77,7 @@
 ;;; -----------------------------------------------------------------------------
 ;;; ERC
 (require 'erc)
-(require 'erc-highlight-nicknames)
+(require 'erc-hl-nicks)
 (setq erc-join-buffer 'bury)
 (setq erc-fill-column 120)
 

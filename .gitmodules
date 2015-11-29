@@ -1,15 +1,6 @@
 [submodule ".emacs.d/lib/column-marker"]
 	path = .emacs.d/lib/column-marker
 	url = https://github.com/emacsmirror/column-marker
-[submodule ".emacs.d/lib/haskell-mode"]
-	path = .emacs.d/lib/haskell-mode
-	url = https://github.com/haskell/haskell-mode
-[submodule ".emacs.d/lib/pcache"]
-	path = .emacs.d/lib/pcache
-	url = https://github.com/sigma/pcache
-[submodule ".emacs.d/lib/logito"]
-	path = .emacs.d/lib/logito
-	url = https://github.com/sigma/logito
 [submodule ".emacs.d/lib/color-theme-molokai"]
 	path = .emacs.d/lib/color-theme-molokai
 	url = git://github.com/alloy-d/color-theme-molokai.git

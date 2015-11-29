@@ -27,9 +27,9 @@
 ;;; packages
 
 (require 'package)
-(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
-                         ("marmalade" . "https://marmalade-repo.org/packages/")
-                         ("melpa" . "https://stable.melpa.org/packages/")))
+(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")                         
+                         ("melpa" . "https://stable.melpa.org/packages/")
+                         ("marmalade" . "https://marmalade-repo.org/packages/")))
 (package-initialize)
 
 
@@ -41,9 +41,11 @@
  'go-mode
  'gist
  'color-theme
+ 'color-theme-molokai
  'markdown-mode
  'js2-mode
  'scala-mode
+ 'haskell-mode
  'cider)
  
 

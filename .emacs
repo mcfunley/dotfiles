@@ -39,6 +39,7 @@
  'php-mode
  'bm
  'go-mode
+ 'gist
  'cider)
  
 
@@ -389,7 +390,6 @@
 ;;; -----------------------------------------------------------------------------
 ;;; github
 
-(add-to-list 'load-path "~/lib/site-lisp/gist")
 (require 'gist)
 
 ; overwrites ns-print-buffer

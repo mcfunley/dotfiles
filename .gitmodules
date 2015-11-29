@@ -10,9 +10,6 @@
 [submodule ".emacs.d/lib/js2-mode"]
 	path = .emacs.d/lib/js2-mode
 	url = https://github.com/mooz/js2-mode
-[submodule ".emacs.d/lib/gist"]
-	path = .emacs.d/lib/gist
-	url = https://github.com/defunkt/gist.el
 [submodule ".emacs.d/lib/pcache"]
 	path = .emacs.d/lib/pcache
 	url = https://github.com/sigma/pcache

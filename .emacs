@@ -14,13 +14,6 @@
 
 (add-to-list 'exec-path "/usr/local/bin")
 
-(defvar have-evernote 
-  (file-exists-p (expand-file-name "~/lib/site-lisp/evernote")))
-
-(when have-evernote
-  (add-to-list 'load-path "~/lib/site-lisp/evernote")
-  (require 'evernote-mode))
-
 
 ;;; -----------------------------------------------------------------------------
 ;;; OS compatibility stuff

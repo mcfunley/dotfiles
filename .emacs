@@ -44,6 +44,7 @@
 
 (setq split-width-threshold nil)
 
+
 ;;; -----------------------------------------------------------------------------
 ;;; my elisp
 
@@ -61,8 +62,6 @@
 ;;; -----------------------------------------------------------------------------
 ;;; comint / shells / terminals
 
-; (require 'multi-term)
-
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 (setq comint-prompt-read-only t)
 
@@ -77,24 +76,8 @@
 (defcustom etsy-erc-nickname "dan" "")
 
 (setq erc-keywords '("\\bdmckinley\\b" "\\bdan\\b"))
-
 (setq erc-hide-list `("JOIN" "PART" "QUIT"))
-
 (setq erc-system-name (concat (user-login-name) "@" (system-name)))
-(defun etsy-erc () 
-  (interactive)
-  (erc-highlight-nicknames-disable)
-  (erc-ssl :server etsy-irc-server :nick etsy-erc-nickname
-           :port etsy-irc-port
-           :password etsy-irc-password))
-
-(defun etsy-restart-erc ()
-  (interactive)
-  (dolist (b (buffer-list))
-    (with-current-buffer b
-      (when (string= "ERC" (format-mode-line mode-name nil nil b))
-        (kill-buffer b))))
-  (etsy-erc))
 
 
 ;;; -----------------------------------------------------------------------------
@@ -221,7 +204,6 @@
   (interactive)
   (enable-tab-completion)
   (column-number-mode t)
-  ; (electric-indent-mode t)
   (linum-mode t)
   (setq tab-width 4)
   (setq c-basic-offset 4)
@@ -240,13 +222,13 @@
              ruby-mode-hook
              scala-mode-hook
              go-mode-hook
+             clojure-mode-hook
              java-mode-hook))
-  (add-hook h 'progmode-defaults))
+  (add-hook h 'progmode-defaults))2
 
 
 ;;;; override tab width for java files
 (add-hook 'java-mode-hook (lambda () (setq tab-width 2)))
-
 
 (add-to-list 'auto-mode-alist (cons "\\.tpl\\'" 'html-mode))
 (add-to-list 'auto-mode-alist (cons "\\.as\\'" 'actionscript-mode))
@@ -270,9 +252,9 @@
     (progn (setq visible-bell nil)
            (setq ring-bell-function 'ignore))
   (setq visible-bell t))
-  
 
 (setq inhibit-startup-message t)
+
 
 ;;; -----------------------------------------------------------------------------
 ;;; grep mode
@@ -287,6 +269,7 @@
 ; If running as --daemon, prevent killing the process via muscle memory. 
 (when (daemonp)
   (global-set-key (kbd "C-x C-c") 'delete-frame))
+
 
 ;;; -----------------------------------------------------------------------------
 ;;; bm.el
@@ -415,10 +398,7 @@
 ;;; color-theme
 
 (require 'color-theme)
-; (require 'color-theme-twilight)
 (require 'color-theme-molokai)
-(add-to-list 'custom-theme-load-path "~/.emacs.d/lib/color-theme-solarized")
-
 (color-theme-molokai)
 
 ;;; -----------------------------------------------------------------------------

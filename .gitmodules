@@ -31,18 +31,12 @@
 [submodule ".emacs.d/lib/color-theme"]
 	path = .emacs.d/lib/color-theme
 	url = https://github.com/jwiegley/color-theme
-[submodule ".emacs.d/lib/color-theme-solarized"]
-	path = .emacs.d/lib/color-theme-solarized
-	url = https://github.com/sellout/emacs-color-theme-solarized/
 [submodule ".emacs.d/lib/markdown-mode"]
 	path = .emacs.d/lib/markdown-mode
 	url = http://jblevins.org/git/markdown-mode.git
 [submodule ".emacs.d/lib/php-mode"]
 	path = .emacs.d/lib/php-mode
 	url = git://github.com/ejmr/php-mode.git
-[submodule ".emacs.d/lib/twilight-emacs"]
-	path = .emacs.d/lib/twilight-emacs
-	url = git://github.com/crafterm/twilight-emacs.git
 [submodule ".emacs.d/lib/scala-mode"]
 	path = .emacs.d/lib/scala-mode
 	url = git://github.com/haxney/scala-mode.git

@@ -21,6 +21,24 @@
   (add-to-list 'load-path "~/lib/site-lisp/evernote")
   (require 'evernote-mode))
 
+
+;;; -----------------------------------------------------------------------------
+;;; OS compatibility stuff
+
+(setq osx-is-el-capitan
+      (and (string= system-type "darwin")
+           (string= (shell-command-to-string "sw_vers -productVersion") "10.11\n")))
+
+
+;;; -----------------------------------------------------------------------------
+;;; package
+
+(require 'package)
+(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
+                         ("marmalade" . "https://marmalade-repo.org/packages/")
+                         ("melpa" . "https://stable.melpa.org/packages/")))
+(package-initialize)
+
 ;;; -----------------------------------------------------------------------------
 ;;; windows, etc
 
@@ -32,11 +50,6 @@
 (require 'mckinley-functions)
 (load-local-settings)
 (load-secrets)
-
-(require 'webfactional)
-
-(require 'mckinley-browser)
-
 
 
 ;;; -----------------------------------------------------------------------------
@@ -180,7 +193,6 @@
 (require 'haskell-mode)
 (require 'scala-mode)
 (require 'go-mode-load)
-(require 'clojure-mode)
 
 (autoload 'markdown-mode "markdown-mode.el" "Major mode for editing Markdown files" t)
 (setq markdown-command (executable-find "markdown"))
@@ -228,7 +240,6 @@
              ruby-mode-hook
              scala-mode-hook
              go-mode-hook
-             clojure-mode-hook
              java-mode-hook))
   (add-hook h 'progmode-defaults))
 
@@ -245,7 +256,6 @@
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 
 
-
 ;;; -----------------------------------------------------------------------------
 ;;; appearance / global interface
 (when (fboundp 'tool-bar-mode)
@@ -254,8 +264,13 @@
 (when (fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
 
-;; stfu 
-(setq visible-bell t)
+;; In OSX El Capitan, the visible bell has display issues. Just turn it
+;; off there for now.
+(if osx-is-el-capitan
+    (progn (setq visible-bell nil)
+           (setq ring-bell-function 'ignore))
+  (setq visible-bell t))
+  
 
 (setq inhibit-startup-message t)
 
@@ -282,6 +297,12 @@
   (global-set-key (kbd "s-B") 'bm-show-all)
   (global-set-key (kbd "s-,") 'bm-previous)
   (global-set-key (kbd "s-.") 'bm-next))
+
+
+;;; -----------------------------------------------------------------------------
+;;; clojure
+
+(setq cider-lein-command (executable-find "lein"))
 
 
 ;;; -----------------------------------------------------------------------------

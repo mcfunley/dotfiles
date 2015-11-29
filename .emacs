@@ -41,6 +41,9 @@
  'go-mode
  'gist
  'color-theme
+ 'markdown-mode
+ 'js2-mode
+ 'scala-mode
  'cider)
  
 

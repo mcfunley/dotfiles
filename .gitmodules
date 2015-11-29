@@ -13,9 +13,6 @@
 [submodule ".emacs.d/lib/gist"]
 	path = .emacs.d/lib/gist
 	url = https://github.com/defunkt/gist.el
-[submodule ".emacs.d/lib/gh"]
-	path = .emacs.d/lib/gh
-	url = https://github.com/sigma/gh.el
 [submodule ".emacs.d/lib/pcache"]
 	path = .emacs.d/lib/pcache
 	url = https://github.com/sigma/pcache

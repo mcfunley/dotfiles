@@ -44,6 +44,7 @@
 (ensure-package-installed
  'erc-hl-nicks
  'php-mode
+ 'bm
  'cider)
  
 

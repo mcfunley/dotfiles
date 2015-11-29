@@ -7,9 +7,6 @@
 [submodule ".emacs.d/lib/haskell-mode"]
 	path = .emacs.d/lib/haskell-mode
 	url = https://github.com/haskell/haskell-mode
-[submodule ".emacs.d/lib/bm"]
-	path = .emacs.d/lib/bm
-	url = https://github.com/joodland/bm
 [submodule ".emacs.d/lib/js2-mode"]
 	path = .emacs.d/lib/js2-mode
 	url = https://github.com/mooz/js2-mode

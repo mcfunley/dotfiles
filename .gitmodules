@@ -13,9 +13,6 @@
 [submodule ".emacs.d/lib/logito"]
 	path = .emacs.d/lib/logito
 	url = https://github.com/sigma/logito
-[submodule ".emacs.d/lib/color-theme"]
-	path = .emacs.d/lib/color-theme
-	url = https://github.com/jwiegley/color-theme
 [submodule ".emacs.d/lib/markdown-mode"]
 	path = .emacs.d/lib/markdown-mode
 	url = http://jblevins.org/git/markdown-mode.git

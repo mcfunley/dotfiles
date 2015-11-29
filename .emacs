@@ -40,6 +40,7 @@
  'bm
  'go-mode
  'gist
+ 'color-theme
  'cider)
  
 

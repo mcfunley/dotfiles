@@ -43,6 +43,7 @@
 (require 'ensure-package)
 (ensure-package-installed
  'erc-hl-nicks
+ 'php-mode
  'cider)
  
 
@@ -298,8 +299,6 @@
 
 ;;; -----------------------------------------------------------------------------
 ;;; php 
-(add-to-list 'php-file-patterns "\\.phpt\\'")
-
 (c-add-style 
  "my-php-style" 
  '((c-offsets-alist . ((arglist-close . c-lineup-close-paren)))))

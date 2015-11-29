@@ -31,13 +31,20 @@
 
 
 ;;; -----------------------------------------------------------------------------
-;;; package
+;;; packages
 
 (require 'package)
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
                          ("marmalade" . "https://marmalade-repo.org/packages/")
                          ("melpa" . "https://stable.melpa.org/packages/")))
 (package-initialize)
+
+
+(require 'ensure-package)
+(ensure-package-installed
+ 'cider)
+ 
+
 
 ;;; -----------------------------------------------------------------------------
 ;;; windows, etc

@@ -294,6 +294,9 @@
 ;;; clojure
 
 (setq cider-lein-command (executable-find "lein"))
+(put-clojure-indent '-> 1)
+(put-clojure-indent '->> 1)
+(put-clojure-indent 'match 1)
 
 
 ;;; -----------------------------------------------------------------------------

@@ -18,9 +18,10 @@
 ;;; -----------------------------------------------------------------------------
 ;;; OS compatibility stuff
 
+;; more like el-crapitan
 (setq osx-is-el-capitan
       (and (string= system-type "darwin")
-           (string= (shell-command-to-string "sw_vers -productVersion") "10.11\n")))
+           (string-prefix-p "10.11" (shell-command-to-string "sw_vers -productVersion"))))
 
 
 ;;; -----------------------------------------------------------------------------

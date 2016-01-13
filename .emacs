@@ -47,6 +47,7 @@
  'js2-mode
  'scala-mode
  'haskell-mode
+ 'web-mode
  'cider)
  
 
@@ -233,15 +234,17 @@
              scala-mode-hook
              go-mode-hook
              clojure-mode-hook
+             web-mode-hook
              java-mode-hook))
-  (add-hook h 'progmode-defaults))2
+  (add-hook h 'progmode-defaults))
 
 
 ;;;; override tab width for java files
 (add-hook 'java-mode-hook (lambda () (setq tab-width 2)))
 
-(add-to-list 'auto-mode-alist (cons "\\.tpl\\'" 'html-mode))
-(add-to-list 'auto-mode-alist (cons "\\.jinja\\'" 'html-mode))
+(add-to-list 'auto-mode-alist (cons "\\.tpl\\'" 'web-mode))
+(add-to-list 'auto-mode-alist (cons "\\.jinja\\'" 'web-mode))
+(add-to-list 'auto-mode-alist (cons "\\.soy\\'" 'web-mode))
 
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)

@@ -414,6 +414,36 @@
 (require 'color-theme-molokai)
 (color-theme-molokai)
 
+
+;;; -----------------------------------------------------------------------------
+;;; aws - read the aws config into emacs environment if present
+
+(defun read-aws-config ()
+  (let ((config-file (expand-file-name "~/.aws/config"))
+        (result nil))
+    (when (file-exists-p config-file)
+      (with-temp-buffer
+        (insert-file-contents config-file)
+        (dolist (l (split-string (buffer-string) "\n"))
+          (let ((m (split-string l "\s+=\s+")))
+            (when (= 2 (length m))
+              (setq result (cons (cons (intern (car m)) (cadr m)) result)))))))
+    result))
+
+(defun set-aws-config-vars ()
+  (let ((conf (read-aws-config)))
+    (when conf
+      (dolist (k '(aws_secret_access_key aws_access_key_id))
+        (let ((a (assoc k conf)))
+          (when a
+            (setenv (symbol-name k) (cdr a))))))
+    ;; don't return the value of one of the secret keys
+    nil))
+
+
+(set-aws-config-vars)
+
+
 ;;; -----------------------------------------------------------------------------
 ;;; post init hook
 

@@ -436,12 +436,12 @@
       (dolist (k '(aws_secret_access_key aws_access_key_id))
         (let ((a (assoc k conf)))
           (when a
-            (setenv (symbol-name k) (cdr a))))))
+            (setenv (upcase (symbol-name k)) (cdr a))))))
     ;; don't return the value of one of the secret keys
     nil))
 
 
-(set-aws-config-vars)
+; (set-aws-config-vars)
 
 
 ;;; -----------------------------------------------------------------------------

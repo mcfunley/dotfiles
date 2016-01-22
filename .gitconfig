@@ -8,6 +8,7 @@
 	default = simple
 [alias]
 	rpull = pull --rebase
+	srpull = "!git stash && git rpull && git stash pop"
 	lg = "!git --no-pager log --oneline origin..HEAD"
 [include]
 	path = /Users/dmckinley/.gitconfig-secrets

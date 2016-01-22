@@ -242,13 +242,19 @@
 ;;;; override tab width for java files
 (add-hook 'java-mode-hook (lambda () (setq tab-width 2)))
 
+(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+
+;;; -----------------------------------------------------------------------------
+;;; web mode
+
 (add-to-list 'auto-mode-alist (cons "\\.tpl\\'" 'web-mode))
 (add-to-list 'auto-mode-alist (cons "\\.jinja\\'" 'web-mode))
 (add-to-list 'auto-mode-alist (cons "\\.soy\\'" 'web-mode))
 
-(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
-(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
-
+(setq web-mode-code-indent-offset 2)
+(setq web-mode-markup-indent-offset 2)
+(setq web-mode-css-indent-offset 2)
 
 ;;; -----------------------------------------------------------------------------
 ;;; appearance / global interface

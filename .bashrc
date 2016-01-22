@@ -21,6 +21,7 @@ if [ -a ~/.bash_java ]; then
 fi
 
 alias simulator='open /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone\ Simulator.app'
+alias coda='brew update && brew upgrade --all && brew cleanup'
 
 alias gist='gist -p'
 

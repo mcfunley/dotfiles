@@ -28,7 +28,7 @@
 ;;; packages
 
 (require 'package)
-(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")                         
+(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
                          ("melpa" . "https://stable.melpa.org/packages/")
                          ("marmalade" . "https://marmalade-repo.org/packages/")))
 (package-initialize)
@@ -49,7 +49,7 @@
  'haskell-mode
  'web-mode
  'cider)
- 
+
 
 
 ;;; -----------------------------------------------------------------------------
@@ -78,28 +78,13 @@
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 (setq comint-prompt-read-only t)
 
-
-;;; -----------------------------------------------------------------------------
-;;; ERC
-(require 'erc)
-(require 'erc-hl-nicks)
-(setq erc-join-buffer 'bury)
-(setq erc-fill-column 120)
-
-(defcustom etsy-erc-nickname "dan" "")
-
-(setq erc-keywords '("\\bdmckinley\\b" "\\bdan\\b"))
-(setq erc-hide-list `("JOIN" "PART" "QUIT"))
-(setq erc-system-name (concat (user-login-name) "@" (system-name)))
-
-
 ;;; -----------------------------------------------------------------------------
 ;;; icomplete
 
 (icomplete-mode t)
 
 ;; This fixes the default completion when using icomplete. For example,
-;; if you type C-x k to kill the current buffer, type nothing, and then force 
+;; if you type C-x k to kill the current buffer, type nothing, and then force
 ;; icomplete via C-j, the buffer killed will be whatever icomplete would have
 ;; completed to and not the default.
 ;; This seems like the kind of thing that will be fixed in future versions
@@ -162,7 +147,7 @@
 ;;; -----------------------------------------------------------------------------
 ;;; keys
 
-(global-set-key "\C-x\C-m" 'execute-extended-command) 
+(global-set-key "\C-x\C-m" 'execute-extended-command)
 (global-set-key "\C-xm" 'execute-extended-command) ; originally compose-mail
 (global-set-key "\C-w" 'backward-kill-word)
 (global-set-key "\C-z" 'undo)
@@ -174,6 +159,12 @@
 ;; apple command key is the meta key
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier 'super)
+
+
+;;; -----------------------------------------------------------------------------
+;;; files
+
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;;; -----------------------------------------------------------------------------
 ;;; progmodes
@@ -205,7 +196,7 @@
       (dabbrev-expand arg)
     (indent-according-to-mode)))
 
-(defun enable-tab-completion () 
+(defun enable-tab-completion ()
   (local-set-key [tab] 'indent-or-expand))
 
 (defun show-parens-in-buffer ()
@@ -223,7 +214,7 @@
   (setq indent-tabs-mode nil)
   (show-parens-in-buffer))
 
-(dolist (h '(python-mode-hook 
+(dolist (h '(python-mode-hook
              emacs-lisp-mode-hook
              lisp-mode-hook
              php-mode-hook
@@ -284,7 +275,7 @@
 
 (server-start)
 
-; If running as --daemon, prevent killing the process via muscle memory. 
+; If running as --daemon, prevent killing the process via muscle memory.
 (when (daemonp)
   (global-set-key (kbd "C-x C-c") 'delete-frame))
 
@@ -292,7 +283,7 @@
 ;;; -----------------------------------------------------------------------------
 ;;; bm.el
 
-(when (fboundp 'define-fringe-bitmap) 
+(when (fboundp 'define-fringe-bitmap)
   (require 'bm)
   (global-set-key (kbd "s-b") 'bm-toggle)
   (global-set-key (kbd "s-B") 'bm-show-all)
@@ -311,9 +302,9 @@
 
 
 ;;; -----------------------------------------------------------------------------
-;;; php 
-(c-add-style 
- "my-php-style" 
+;;; php
+(c-add-style
+ "my-php-style"
  '((c-offsets-alist . ((arglist-close . c-lineup-close-paren)))))
 
 (defun php-formatting-defaults ()
@@ -339,7 +330,7 @@
 (require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
-;; do not delete trailing whitespace all over the place on save and fuck up 
+;; do not delete trailing whitespace all over the place on save and fuck up
 ;; my diffs
 (setq js2-cleanup-whitespace nil)
 
@@ -358,7 +349,7 @@
 ;;; -----------------------------------------------------------------------------
 ;;; postgres
 
-(setq sql-postgres-program (or (executable-find "psql") 
+(setq sql-postgres-program (or (executable-find "psql")
                                "/usr/local/pgsql/bin/psql"))
 
 (defun* pg-options (&rest opts)
@@ -381,7 +372,7 @@
       (sql-postgres))))
 
 
-(defun* connectpg (host port &optional (database "etsy_v2") 
+(defun* connectpg (host port &optional (database "etsy_v2")
 			(user etsy-default-pg-user) (password etsy-default-pg-password))
   (with-local-machine
    (let ((sql-server host)
@@ -397,7 +388,7 @@
        (interactive)
        (connectpg ,@args))))
 
-(defun sql-mode-defaults () 
+(defun sql-mode-defaults ()
   (toggle-truncate-lines 1))
 
 (add-hook 'sql-mode-hook 'sql-mode-defaults)

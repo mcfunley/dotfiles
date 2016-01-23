@@ -48,7 +48,8 @@
  'scala-mode
  'haskell-mode
  'web-mode
- 'cider)
+ 'cider
+ 'aggressive-indent)
 
 
 
@@ -64,13 +65,6 @@
 (require 'mckinley-functions)
 (load-local-settings)
 (load-secrets)
-
-
-;;; -----------------------------------------------------------------------------
-;;; tail
-(require 'tail)
-(setq tail-max-size 15)
-
 
 ;;; -----------------------------------------------------------------------------
 ;;; comint / shells / terminals
@@ -171,7 +165,6 @@
 
 ;; cool stuffs
 (require 'column-marker)
-; (require 'newlines)
 
 ;; languages
 (require 'python)
@@ -302,6 +295,16 @@
 
 
 ;;; -----------------------------------------------------------------------------
+;;; aggressive-indent
+
+(require 'aggressive-indent)
+(global-aggressive-indent-mode)
+(add-to-list 'aggressive-indent-excluded-modes 'html-mode)
+(add-to-list 'aggressive-indent-excluded-modes 'sql-mode)
+(add-to-list 'aggressive-indent-excluded-modes 'web-mode)
+
+
+;;; -----------------------------------------------------------------------------
 ;;; php
 (c-add-style
  "my-php-style"
@@ -347,46 +350,7 @@
 
 
 ;;; -----------------------------------------------------------------------------
-;;; postgres
-
-(setq sql-postgres-program (or (executable-find "psql")
-                               "/usr/local/pgsql/bin/psql"))
-
-(defun* pg-options (&rest opts)
-  (if (boundp 'sql-postgres-options)
-      (append opts sql-postgres-options)
-    (setq sql-postgres-options opts)))
-
-(defmacro with-local-machine (&rest body)
-  `(with-temp-buffer
-     (setq default-directory (expand-file-name "~"))
-     ,@body))
-
-(defun localdb ()
-  (interactive)
-  (with-local-machine
-   (let ((sql-server "localhost")
-          (sql-database "fixed_yoshi_test_master")
-          (sql-postgres-options `("-p" "5432"))
-          (sql-user "etsy"))
-      (sql-postgres))))
-
-
-(defun* connectpg (host port &optional (database "etsy_v2")
-			(user etsy-default-pg-user) (password etsy-default-pg-password))
-  (with-local-machine
-   (let ((sql-server host)
-         (sql-postgres-options `("-p" ,port))
-         (sql-database database)
-         (sql-user user)
-         (sql-password password))
-     (sql-postgres))))
-
-(defmacro pgconnector (key)
-  (let ((args (cdr (assoc key etsy-database-info))))
-    `(defun ,(intern (substring (symbol-name key) 1)) ()
-       (interactive)
-       (connectpg ,@args))))
+;;; sql
 
 (defun sql-mode-defaults ()
   (toggle-truncate-lines 1))
@@ -410,36 +374,6 @@
 (require 'color-theme)
 (require 'color-theme-molokai)
 (color-theme-molokai)
-
-
-;;; -----------------------------------------------------------------------------
-;;; aws - read the aws config into emacs environment if present
-
-(defun read-aws-config ()
-  (let ((config-file (expand-file-name "~/.aws/config"))
-        (result nil))
-    (when (file-exists-p config-file)
-      (with-temp-buffer
-        (insert-file-contents config-file)
-        (dolist (l (split-string (buffer-string) "\n"))
-          (let ((m (split-string l "\s+=\s+")))
-            (when (= 2 (length m))
-              (setq result (cons (cons (intern (car m)) (cadr m)) result)))))))
-    result))
-
-(defun set-aws-config-vars ()
-  (let ((conf (read-aws-config)))
-    (when conf
-      (dolist (k '(aws_secret_access_key aws_access_key_id))
-        (let ((a (assoc k conf)))
-          (when a
-            (setenv (upcase (symbol-name k)) (cdr a))))))
-    ;; don't return the value of one of the secret keys
-    nil))
-
-
-; (set-aws-config-vars)
-
 
 ;;; -----------------------------------------------------------------------------
 ;;; post init hook

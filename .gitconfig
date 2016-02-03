@@ -2,7 +2,7 @@
 	name = Dan McKinley
 	email = mcfunley@gmail.com
 [core]
-	editor = /usr/local/Cellar/emacs/HEAD/bin/emacsclient
+	editor = emacsclient
 	excludesfile = /Users/dmckinley/.gitignore-global
 [push]
 	default = simple

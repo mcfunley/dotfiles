@@ -173,11 +173,6 @@
 (require 'scala-mode)
 (require 'go-mode)
 
-(autoload 'markdown-mode "markdown-mode.el" "Major mode for editing Markdown files" t)
-(setq markdown-command (executable-find "markdown"))
-
-(setq auto-mode-alist (cons '("\\.md" . markdown-mode) auto-mode-alist))
-
 (setq indent-tabs-mode nil)
 
 (defun indent-or-expand (arg)
@@ -293,6 +288,19 @@
 (put-clojure-indent '->> 1)
 (put-clojure-indent 'match 1)
 
+(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
+
+;;; -----------------------------------------------------------------------------
+;;; markdown
+
+(autoload 'markdown-mode
+  "markdown-mode.el"
+  "Major mode for editing Markdown files"
+  t)
+(setq markdown-command (executable-find "markdown"))
+
+(setq auto-mode-alist (cons '("\\.md" . markdown-mode) auto-mode-alist))
+
 
 ;;; -----------------------------------------------------------------------------
 ;;; aggressive-indent
@@ -302,6 +310,12 @@
 (add-to-list 'aggressive-indent-excluded-modes 'html-mode)
 (add-to-list 'aggressive-indent-excluded-modes 'sql-mode)
 (add-to-list 'aggressive-indent-excluded-modes 'web-mode)
+
+;; disabled modes
+(dolist (h '(markdown-mode-hook
+             css-mode-hook
+             js2-mode-hook))
+  (add-hook h (lambda () (aggressive-indent-mode nil))))
 
 
 ;;; -----------------------------------------------------------------------------

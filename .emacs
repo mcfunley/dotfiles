@@ -128,6 +128,8 @@
                ("js" (mode . js2-mode))
                ("sql" (mode . sql-mode))
                ("smarty" (name . ".*tpl$"))
+               ("clojure" (mode . clojure-mode))
+               ("nrepl" (mode . nrepl-messages-mode))
                ("emacs" (or (name . "^\\*scratch\\*$")
                             (mode . ielm)
                             (name . "^\\*Messages\\*$")))))))
@@ -307,15 +309,14 @@
 
 (require 'aggressive-indent)
 (global-aggressive-indent-mode)
-(add-to-list 'aggressive-indent-excluded-modes 'html-mode)
-(add-to-list 'aggressive-indent-excluded-modes 'sql-mode)
-(add-to-list 'aggressive-indent-excluded-modes 'web-mode)
 
-;; disabled modes
-(dolist (h '(markdown-mode-hook
-             css-mode-hook
-             js2-mode-hook))
-  (add-hook h (lambda () (aggressive-indent-mode nil))))
+(dolist (m '(html-mode
+             sql-mode
+             web-mode
+             markdown-mode
+             css-mode
+             js2-mode))
+  (add-to-list 'aggressive-indent-excluded-modes m))
 
 
 ;;; -----------------------------------------------------------------------------

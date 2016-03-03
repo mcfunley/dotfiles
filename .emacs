@@ -49,7 +49,8 @@
  'haskell-mode
  'web-mode
  'cider
- 'aggressive-indent)
+ 'aggressive-indent
+ 'less-css-mode)
 
 
 
@@ -216,6 +217,7 @@
              go-mode-hook
              clojure-mode-hook
              web-mode-hook
+             less-css-mode-hook
              java-mode-hook))
   (add-hook h 'progmode-defaults))
 
@@ -315,6 +317,7 @@
              web-mode
              markdown-mode
              css-mode
+             less-css-mode
              js2-mode))
   (add-to-list 'aggressive-indent-excluded-modes m))
 

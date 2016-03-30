@@ -50,6 +50,7 @@
  'web-mode
  'cider
  'aggressive-indent
+ 'json-mode
  'less-css-mode)
 
 
@@ -288,11 +289,13 @@
 
 (require 'clojure-mode)
 (setq cider-lein-command (executable-find "lein"))
-(put-clojure-indent '-> 1)
-(put-clojure-indent '->> 1)
-(put-clojure-indent 'match 1)
-
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
+
+(define-clojure-indent
+  (GET 2)
+  (POST 2)
+  (context 2)
+  (routes '(:defn)))
 
 ;;; -----------------------------------------------------------------------------
 ;;; markdown
@@ -346,7 +349,7 @@
 
 
 ;;; -----------------------------------------------------------------------------
-;;; javascript
+;;; javascript and json
 
 (require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
@@ -366,6 +369,8 @@
 (when (load "ess-autoloads.el" t)
   (require 'ess-site))
 
+(setq js-indent-level 2)
+(add-hook 'json-mode-hook 'progmode-defaults)
 
 ;;; -----------------------------------------------------------------------------
 ;;; sql

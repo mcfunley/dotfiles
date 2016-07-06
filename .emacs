@@ -51,6 +51,7 @@
  'cider
  'aggressive-indent
  'json-mode
+ 'dockerfile-mode
  'less-css-mode)
 
 
@@ -239,6 +240,7 @@
 (setq web-mode-code-indent-offset 2)
 (setq web-mode-markup-indent-offset 2)
 (setq web-mode-css-indent-offset 2)
+(setq css-indent-offset 2)
 
 ;;; -----------------------------------------------------------------------------
 ;;; appearance / global interface
@@ -291,11 +293,19 @@
 (setq cider-lein-command (executable-find "lein"))
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 
-(define-clojure-indent
-  (GET 2)
-  (POST 2)
-  (context 2)
-  (routes '(:defn)))
+(put-clojure-indent 's/defn :defn)
+(put-clojure-indent 's/fn :defn)
+(put-clojure-indent 'defroutes :defn)
+(put-clojure-indent 'routes :defn)
+(put-clojure-indent 'GET 2)
+(put-clojure-indent 'POST 2)
+(put-clojure-indent 'PUT 2)
+(put-clojure-indent 'DELETE 2)
+(put-clojure-indent 'HEAD 2)
+(put-clojure-indent 'ANY 2)
+(put-clojure-indent 'context 2)
+(put 's/defn 'clojure-doc-string-elt 2)
+(put 's/defschema 'clojure-doc-string-elt 2)
 
 ;;; -----------------------------------------------------------------------------
 ;;; markdown

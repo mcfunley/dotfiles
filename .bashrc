@@ -20,8 +20,12 @@ if [ -a ~/.bash_java ]; then
     source ~/.bash_java
 fi
 
+if [ -a ~/.bash_ruby ]; then
+    source ~/.bash_ruby
+fi
+
 alias simulator='open /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone\ Simulator.app'
-alias coda='brew update && brew upgrade --all && brew cleanup'
+alias coda='brew update && brew upgrade --all && brew cleanup && docker images | grep "<none>" | awk "{ print $3 }" | xargs docker rmi'
 
 alias gist='gist -p'
 

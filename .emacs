@@ -50,6 +50,7 @@
  'web-mode
  'cider
  'aggressive-indent
+ 'yaml-mode
  'json-mode
  'dockerfile-mode
  'less-css-mode)
@@ -173,7 +174,7 @@
 
 ;; languages
 (require 'python)
-(require 'php-mode)
+; (require 'php-mode)
 (require 'haskell-mode)
 (require 'scala-mode)
 (require 'go-mode)
@@ -236,6 +237,7 @@
 (add-to-list 'auto-mode-alist (cons "\\.tpl\\'" 'web-mode))
 (add-to-list 'auto-mode-alist (cons "\\.jinja\\'" 'web-mode))
 (add-to-list 'auto-mode-alist (cons "\\.soy\\'" 'web-mode))
+(add-to-list 'auto-mode-alist (cons "\\.html\\'" 'web-mode))
 
 (setq web-mode-code-indent-offset 2)
 (setq web-mode-markup-indent-offset 2)
@@ -415,3 +417,17 @@
   (mck-post-init))
 
 (message "done")
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (yaml-mode web-mode scala-mode rainbow-delimiters php-mode markdown-preview-mode less-css-mode json-mode js2-mode haskell-mode go-mode gist erc-hl-nicks dockerfile-mode dash color-theme-molokai color-theme cider-eval-sexp-fu cider bm auto-complete aggressive-indent))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

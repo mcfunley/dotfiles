@@ -3,26 +3,8 @@
 ;;; -----------------------------------------------------------------------------
 ;;; paths
 
-(add-to-list 'load-path "~/.emacs.d/elisp")
 (add-to-list 'load-path "~/.emacs.d/lib")
-
-(let ((libs (directory-files "~/.emacs.d/lib" nil "^[^.]+$")))
-  (dolist (d libs)
-    (let ((path (concat "~/.emacs.d/lib/" d)))
-      (message path)
-      (add-to-list 'load-path path))))
-
 (add-to-list 'exec-path "/usr/local/bin")
-
-
-;;; -----------------------------------------------------------------------------
-;;; OS compatibility stuff
-
-;; more like el-crapitan
-(setq osx-is-el-capitan
-      (and (string= system-type "darwin")
-           (string-prefix-p "10.11" (shell-command-to-string "sw_vers -productVersion"))))
-
 
 ;;; -----------------------------------------------------------------------------
 ;;; packages
@@ -33,42 +15,61 @@
                          ("marmalade" . "https://marmalade-repo.org/packages/")))
 (package-initialize)
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (fill-column-indicator
+     aggressive-indent
+     bm
+     cider
+     clojure-mode
+     color-theme
+     color-theme-molokai
+     dockerfile-mode
+     erc-hl-nicks
+     fsharp-mode
+     flycheck
+     dash
+     company-quickhelp
+     company
+     gist
+     gh
+     go-mode
+     haskell-mode
+     js2-mode
+     json-mode
+     json-reformat
+     json-snatcher
+     less-css-mode
+     logito
+     markdown-mode
+     pcache
+     php-mode
+     pkg-info
+     epl
+     popup
+     pos-tip
+     queue
+     rainbow-delimiters
+     s
+     scala-mode
+     spinner
+     swift3-mode
+     web-mode
+     yaml-mode))))
 
-(require 'ensure-package)
-(ensure-package-installed
- 'erc-hl-nicks
- 'php-mode
- 'bm
- 'go-mode
- 'gist
- 'color-theme
- 'color-theme-molokai
- 'markdown-mode
- 'js2-mode
- 'scala-mode
- 'haskell-mode
- 'web-mode
- 'cider
- 'aggressive-indent
- 'yaml-mode
- 'json-mode
- 'dockerfile-mode
- 'less-css-mode)
-
+(when (seq-remove #'package-installed-p package-selected-packages)
+  (package-install-selected-packages))
 
 
 ;;; -----------------------------------------------------------------------------
 ;;; windows, etc
 
 (setq split-width-threshold nil)
-
-
-;;; -----------------------------------------------------------------------------
-;;; my elisp
-
-(require 'mckinley-functions)
-(load-local-settings)
-(load-secrets)
 
 ;;; -----------------------------------------------------------------------------
 ;;; comint / shells / terminals
@@ -167,14 +168,19 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;;; -----------------------------------------------------------------------------
-;;; progmodes
+;;; fci
 
-;; cool stuffs
-(require 'column-marker)
+(require 'fill-column-indicator)
+(setq fci-rule-width 1)
+(setq fci-rule-column 81)
+(setq fci-rule-color "#1E2021")
+
+
+;;; -----------------------------------------------------------------------------
+;;; progmodes
 
 ;; languages
 (require 'python)
-; (require 'php-mode)
 (require 'haskell-mode)
 (require 'scala-mode)
 (require 'go-mode)
@@ -200,11 +206,10 @@
 (defun progmode-defaults ()
   (interactive)
   (enable-tab-completion)
-  (column-number-mode t)
   (linum-mode t)
+  (fci-mode t)
   (setq tab-width 4)
   (setq c-basic-offset 4)
-  (column-marker-1 81)
   (setq indent-tabs-mode nil)
   (show-parens-in-buffer))
 
@@ -234,6 +239,7 @@
 ;;; -----------------------------------------------------------------------------
 ;;; web mode
 
+(add-to-list 'auto-mode-alist (cons "\\.djhtml\\'" 'web-mode))
 (add-to-list 'auto-mode-alist (cons "\\.tpl\\'" 'web-mode))
 (add-to-list 'auto-mode-alist (cons "\\.jinja\\'" 'web-mode))
 (add-to-list 'auto-mode-alist (cons "\\.soy\\'" 'web-mode))
@@ -252,20 +258,16 @@
 (when (fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
 
-;; In OSX El Capitan, the visible bell has display issues. Just turn it
-;; off there for now.
-(if osx-is-el-capitan
-    (progn (setq visible-bell nil)
-           (setq ring-bell-function 'ignore))
-  (setq visible-bell t))
+(setq visible-bell nil
+      ring-bell-function (lambda ()
+                           (invert-face 'mode-line)
+                           (run-with-timer 0.1 nil 'invert-face 'mode-line)))
 
 (setq inhibit-startup-message t)
 
-
-;;; -----------------------------------------------------------------------------
-;;; grep mode
-
-(add-hook 'grep-mode-hook (lambda () (toggle-truncate-lines 1)))
+(when window-system
+  (set-frame-size (selected-frame) 125 55)
+  (set-frame-position (selected-frame) 300 30))
 
 ;;; -----------------------------------------------------------------------------
 ;;; server / daemon stuff
@@ -395,36 +397,13 @@
 
 
 ;;; -----------------------------------------------------------------------------
-;;; github
-
-(require 'gist)
-
-; overwrites ns-print-buffer
-(global-set-key (kbd "s-p") 'gist-buffer-private)
-
-
-;;; -----------------------------------------------------------------------------
 ;;; color-theme
 
 (require 'color-theme)
 (require 'color-theme-molokai)
 (color-theme-molokai)
 
-;;; -----------------------------------------------------------------------------
-;;; post init hook
-
-(when (fboundp 'mck-post-init)
-  (mck-post-init))
-
 (message "done")
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (yaml-mode web-mode scala-mode rainbow-delimiters php-mode markdown-preview-mode less-css-mode json-mode js2-mode haskell-mode go-mode gist erc-hl-nicks dockerfile-mode dash color-theme-molokai color-theme cider-eval-sexp-fu cider bm auto-complete aggressive-indent))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

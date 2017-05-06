@@ -175,6 +175,11 @@
 (setq fci-rule-column 81)
 (setq fci-rule-color "#1E2021")
 
+(setq broken-by-fci-list '(web-mode))
+
+(defun enable-fci-mode ()
+  (unless (member major-mode broken-by-fci-list)
+    (fci-mode t)))
 
 ;;; -----------------------------------------------------------------------------
 ;;; progmodes
@@ -207,7 +212,7 @@
   (interactive)
   (enable-tab-completion)
   (linum-mode t)
-  (fci-mode t)
+  (enable-fci-mode)
   (setq tab-width 4)
   (setq c-basic-offset 4)
   (setq indent-tabs-mode nil)
@@ -228,7 +233,6 @@
              less-css-mode-hook
              java-mode-hook))
   (add-hook h 'progmode-defaults))
-
 
 ;;;; override tab width for java files
 (add-hook 'java-mode-hook (lambda () (setq tab-width 2)))

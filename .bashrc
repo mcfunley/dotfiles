@@ -1,20 +1,16 @@
 export CLICOLOR=1
 export GREP_OPTIONS='--color=auto'
 export LSCOLORS=Exfxcxdxbxegedabagacad
-export PATH=/opt/chef/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:$HOME/bin:$PATH
 export PS1='\n[$PWD]\n\u@\h $ '
+
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 if [ -a ~/.bash_aws ]; then
     source ~/.bash_aws
 fi
-
-export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/Current/Home/
-
-export ANT_OPTS="-Xms2048m -Xmx4096m"
-export SBT_OPTS=-XX:MaxPermSize=2G
-
-. virtualenvwrapper.sh
-export WORKSPACE=.
 
 if [ -a ~/.bash_java ]; then
     source ~/.bash_java
@@ -28,5 +24,4 @@ alias simulator='open /Applications/Xcode.app/Contents/Developer/Platforms/iPhon
 alias coda='brew update && brew upgrade --all && brew cleanup && docker images | grep "<none>" | awk "{ print $3 }" | xargs docker rmi'
 
 alias gist='gist -p'
-
-export ANDROID_HOME=/usr/local/opt/android-sdk
+alias ls='ls -G'
